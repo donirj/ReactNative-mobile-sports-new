@@ -4,6 +4,8 @@ import { NavigationAction, NavigationContainer } from "@react-navigation/native"
 import Login from "./screens/Login";
 import Home from "./screens/Home"
 import Profile from "./screens/Profile";
+import Signin from "./screens/Signin";
+import Prepare from "./screens/Prepare";
 
 const Stack = createNativeStackNavigator()
 
@@ -19,6 +21,8 @@ function MyStack() {
                     options={{presentation: 'modal'}}
                     />
             <Stack.Screen name="Profile" component={Profile}/>
+            <Stack.Screen name="Signin" component={Signin}/>
+            <Stack.Screen name="Prepare" component={Prepare}/>
         </Stack.Navigator>
     )
 }

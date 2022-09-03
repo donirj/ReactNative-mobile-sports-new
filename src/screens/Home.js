@@ -3,13 +3,8 @@ import  * as RN from 'react-native'
 import { useNavigation } from '@react-navigation/native';
 import {Text, View, StyleSheet, Image, TouchableOpacity, Button, TextInput, FlatList, ImageBackground, ScrollView} from 'react-native';
 import {LinearGradient} from 'expo-linear-gradient';
-import { ScrollView } from 'react-native-gesture-handler';
 
-const images = [
-'../../assets/ciclista.png',
-'../../assets/futbol.png',
-'../../assets/runner.png'
-]
+
 
 export default function Home() {
     const navigation = useNavigation();
@@ -21,21 +16,10 @@ export default function Home() {
                 start={{ x: 0, y: 0 }}
                 end={{ x: 1, y: 1 }}
             >
-            <ScrollView horizontal>
-            {
-                images.map((image, index) => {
-                    <Image
-                    key={index}
-                    source={{uri: image}}
-                    style={{width: '100%', height: 300, resizeMode: 'contain'}}
-                    />
-                })
-            }
-            </ScrollView>
 
             <View style={styles.buttonContainer}>
             <TouchableOpacity style={styles.button}>
-                <Text style={styles.btntext} title='go to add screen' onPress={() => navigation.navigate('Add')}>Únete</Text>
+                <Text style={styles.btntext} title='go to add screen' onPress={() => navigation.navigate('Signin')}>Únete</Text>
             </TouchableOpacity>
             <TouchableOpacity style={styles.button}>
                 <Text style={styles.btntext} title='go to add screen' onPress={() => navigation.navigate('Login')}>Entrar</Text>
