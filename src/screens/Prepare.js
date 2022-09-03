@@ -3,21 +3,22 @@ import { useNavigation } from '@react-navigation/native';
 import React from 'react'
 
 export default function Prepare() {
+    const navigation = useNavigation();
+    
   return (
-    <KeyboardAvoidingView
-      behavior={Platform.OS === "ios" ? "padding" : "height"}
-      style={styles.container}
-    >
-      <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-        <View style={styles.inner}>
-          <Text style={styles.header}>Header</Text>
-          <TextInput placeholder="Username" style={styles.textInput} />
-          <View style={styles.btnContainer}>
-            <Button title="Submit" onPress={() => null} />
-          </View>
+
+    <ImageBackground 
+        source={require('../../data/efectos-positivos_1410x740_crop_center.jpg')}
+        style={styles.container4}>
+        <View style={styles.inner2}>
+            <Text style={styles.title}>FIRST HELP US PREPARE YOUR EXPERIENCE</Text>
+            <TouchableOpacity style={styles.button2} title="Continue"
+            onPress={() => navigation.navigate('Favorite')}>
+                <Text style={styles.btntext}>Continue</Text>
+            </TouchableOpacity>
         </View>
-      </TouchableWithoutFeedback>
-    </KeyboardAvoidingView>
+    </ImageBackground>
+
   )
 }
 
@@ -26,24 +27,35 @@ const styles = StyleSheet.create({
     container: {
       flex: 1
     },
-    inner: {
-      padding: 24,
-      flex: 1,
-      justifyContent: "space-around"
+    container4: {
+        flex: 1, 
+        justifyContent: 'center', 
+        alignItems: 'center',
+        backgroundColor: 'white',
     },
-    header: {
-      fontSize: 36,
-      marginBottom: 48
+    inner2: {
+        width: '100%',
+        height: '100%',
+        backgroundColor: 'black',
+        opacity: 0.8,
+        justifyContent: 'center', 
+        alignItems: 'center',
     },
-    textInput: {
-      height: 40,
-      borderColor: "#000000",
-      borderBottomWidth: 1,
-      marginBottom: 36
+    title: {fontSize: 30, color: '#fff', textAlign: 'center'},
+    button2: {
+        backgroundColor: 'white',
+        opacity: 0.6,
+        padding: 10,
+        width: 125,
+        borderRadius: 30,
+        margin: 10,
+        height: 52
     },
-    btnContainer: {
-      backgroundColor: "white",
-      marginTop: 12
+    btntext: {
+        color: 'black',
+        textAlign: 'center',
+        fontSize: 21,
+        fontWeight: 'bold'
     }
   });
   

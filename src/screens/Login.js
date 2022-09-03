@@ -4,9 +4,7 @@ import React, { useState } from 'react'
 
 export default function Login() {
     //state
-
     const navigation = useNavigation();
-    
     return (
         <>
             <KeyboardAvoidingView style={styles.container}>

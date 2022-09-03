@@ -8,59 +8,67 @@ export default function Signin() {
     const navigation = useNavigation();
 
   return (
-    <KeyboardAvoidingView 
-    
-        style={styles.container}
+    <KeyboardAvoidingView
+      behavior={Platform.OS === "ios" ? "padding" : "height"}
+      style={styles.container}
     >
-        <Text style={styles.title3}>ÚNETE A LA LIGA DEL MOVIMIENTO</Text>
-        <Text style={styles.title3} >Crea tu cuenta y empieza a romper tus límites</Text>
-        <TextInput 
-        style={styles.input2}
-        placeholder="email adress"
-            keyboardType="email-address"
+        <ScrollView style={styles.scrollView}>
+        <View style={styles.innerContainer}>
+            <View style={styles.textContainer}>
+                <Text style={styles.title3}>ÚNETE A LA LIGA DEL MOVIMIENTO</Text>
+                <Text style={styles.title3} >Crea tu cuenta y empieza a romper tus límites</Text>
+            </View>            
+            <TextInput 
+            style={styles.input2}
+            placeholder="email adress"
+                keyboardType="email-address"
+                placeholderTextColor="white"
+            />
+            <TextInput 
+            style={styles.input2}
+            placeholder="Password"
+            keyboardType="default"
             placeholderTextColor="white"
-        />
-        <TextInput 
-        style={styles.input2}
-        placeholder="Password"
-        keyboardType="default"
-        placeholderTextColor="white"
-        />
-        <TextInput 
-        style={styles.input2}
-        placeholder="Confirm password"
-        keyboardType="default"
-        placeholderTextColor="white"
-        />
-        <TextInput 
-        style={styles.input2}
-        placeholder="First name"
-        keyboardType="default"
-        placeholderTextColor="white"
-        />
-        <TextInput 
-        style={styles.input2}
-        placeholder="Last name"
-        keyboardType="default"
-        placeholderTextColor="white"
-        />
-        <Text style={styles.subtitle3}>Registra tu fecha de nacimiento para recibir un regalo de todos tus cumpleaños</Text>
-        <TextInput style={styles.input2}
-        placeholder="DD/MM/YYYY"
-        keyboardType="numeric"
-        placeholderTextColor="white"
-        />
-        <View style={styles.container5}>
-            <TouchableOpacity title="Únete" style={styles.button3}
-                onPress={() => navigation.navigate('Prepare')}>
-                <Text style={styles.btntext2}>Únete</Text>
-            </TouchableOpacity>
+            />
+            <TextInput 
+            style={styles.input2}
+            placeholder="Confirm password"
+            keyboardType="default"
+            placeholderTextColor="white"
+            />
+            <TextInput 
+            style={styles.input2}
+            placeholder="First name"
+            keyboardType="default"
+            placeholderTextColor="white"
+            />
+            <TextInput 
+            style={styles.input2}
+            placeholder="Last name"
+            keyboardType="default"
+            placeholderTextColor="white"
+            />
+            <View style={styles.textContainer2}>
+                <Text style={styles.subtitle3}>Registra tu fecha de nacimiento para recibir un regalo de todos tus cumpleaños</Text>
+            </View>
+            <TextInput style={styles.input2}
+            placeholder="DD/MM/YYYY"
+            keyboardType="numeric"
+            placeholderTextColor="white"
+            />
+            <View style={styles.container5}>
+                <TouchableOpacity title="Únete" style={styles.button3}
+                    onPress={() => navigation.navigate('Prepare')}>
+                    <Text style={styles.btntext2}>Únete</Text>
+                </TouchableOpacity>
 
-            <TouchableOpacity title="Atrás" style={styles.button2}
-                onPress={() => navigation.navigate('Home')}>
-                <Text style={styles.btntext}>Atrás</Text>
-            </TouchableOpacity>
+                <TouchableOpacity title="Atrás" style={styles.button2}
+                    onPress={() => navigation.navigate('Home')}>
+                    <Text style={styles.btntext}>Atrás</Text>
+                </TouchableOpacity>
+            </View>
         </View>
+        </ScrollView>
     </KeyboardAvoidingView>
   )
 }
@@ -71,6 +79,16 @@ const styles = StyleSheet.create({
     justifyContent: 'center', 
     alignItems: 'center',
     backgroundColor: '#b497d3',
+    },
+    innerContainer :{
+        width: '70%',
+        marginTop: 40
+    },
+    textContainer: {
+        width: '85%'
+    },
+    textContainer2: {
+        width: '80%'
     },
     title3: {fontSize: 22, color: '#fff', width: '90%', textAlign: 'center'},
     subtitle3: {fontSize: 17, color: 'black', width: '90%', textAlign: 'center'},
@@ -84,7 +102,10 @@ const styles = StyleSheet.create({
         width: '70%'
     },
     container5: {
-        flexDirection: 'row' 
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        width: '75%'
     },
     button3: {
         backgroundColor: 'black',

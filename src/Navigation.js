@@ -6,10 +6,12 @@ import Home from "./screens/Home"
 import Profile from "./screens/Profile";
 import Signin from "./screens/Signin";
 import Prepare from "./screens/Prepare";
+import Favorite from "./screens/Favorite";
 
 const Stack = createNativeStackNavigator()
 
 function MyStack() {
+    
     return(
         <Stack.Navigator
            screenOptions={{ headerShown: false }}
@@ -23,6 +25,8 @@ function MyStack() {
             <Stack.Screen name="Profile" component={Profile}/>
             <Stack.Screen name="Signin" component={Signin}/>
             <Stack.Screen name="Prepare" component={Prepare}/>
+            <Stack.Screen name="Favorite" component={Favorite}/>
+            
         </Stack.Navigator>
     )
 }
