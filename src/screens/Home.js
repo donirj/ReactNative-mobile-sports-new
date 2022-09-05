@@ -4,7 +4,11 @@ import { useNavigation } from '@react-navigation/native';
 import {Text, View, StyleSheet, Image, TouchableOpacity, Button, TextInput, FlatList, ImageBackground, ScrollView} from 'react-native';
 import {LinearGradient} from 'expo-linear-gradient';
 
-
+const data = [
+    'https://i.im.ge/2022/09/05/O869sq.ciclista.png',
+    'https://i.im.ge/2022/09/05/O86UTY.futbol.png',
+    'https://i.im.ge/2022/09/05/O86Djh.runner.png'
+]
 
 export default function Home() {
     const navigation = useNavigation();
@@ -17,13 +21,15 @@ export default function Home() {
                 end={{ x: 1, y: 1 }}
             >
 
+            
+
             <View style={styles.buttonContainer}>
-            <TouchableOpacity style={styles.button}>
-                <Text style={styles.btntext} title='go to add screen' onPress={() => navigation.navigate('Signin')}>Únete</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.button}>
-                <Text style={styles.btntext} title='go to add screen' onPress={() => navigation.navigate('Login')}>Entrar</Text>
-            </TouchableOpacity>
+                <TouchableOpacity style={styles.button}>
+                    <Text style={styles.btntext} title='go to add screen' onPress={() => navigation.navigate('Signin')}>Únete</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.button}>
+                    <Text style={styles.btntext} title='go to add screen' onPress={() => navigation.navigate('Login')}>Entrar</Text>
+                </TouchableOpacity>
             </View>
             </LinearGradient>
         </>

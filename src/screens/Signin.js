@@ -82,7 +82,7 @@ const styles = StyleSheet.create({
     },
     innerContainer :{
         width: '70%',
-        marginTop: 40
+        marginTop: 10
     },
     textContainer: {
         width: '85%'

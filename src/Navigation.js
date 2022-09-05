@@ -8,6 +8,7 @@ import Signin from "./screens/Signin";
 import Prepare from "./screens/Prepare";
 import Favorite from "./screens/Favorite";
 
+
 const Stack = createNativeStackNavigator()
 
 function MyStack() {
