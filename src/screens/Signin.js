@@ -1,6 +1,7 @@
 import React from 'react'
-import {Text, View, StyleSheet, Image, TouchableOpacity, Button, TextInput, FlatList, ImageBackground, ScrollView, KeyboardAvoidingView} from 'react-native';
+import {Text, View, StyleSheet, Image, TouchableOpacity, Button, TextInput, FlatList, ImageBackground, ScrollView, KeyboardAvoidingView } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 export default function Signin() {
 
@@ -8,7 +9,7 @@ export default function Signin() {
     const navigation = useNavigation();
 
   return (
-    <KeyboardAvoidingView
+    <SafeAreaView
       behavior={Platform.OS === "ios" ? "padding" : "height"}
       style={styles.container}
     >
@@ -69,7 +70,7 @@ export default function Signin() {
             </View>
         </View>
         </ScrollView>
-    </KeyboardAvoidingView>
+    </SafeAreaView>
   )
 }
 
