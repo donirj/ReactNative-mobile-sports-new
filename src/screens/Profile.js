@@ -3,6 +3,8 @@ import React from 'react'
 import { useNavigation } from '@react-navigation/native';
 import {Text, View, StyleSheet, Image, TouchableOpacity, Button, TextInput, FlatList, ImageBackground, Modal} from 'react-native';
 import { useState } from 'react';
+//importación del modulo
+import { CustomModal } from '../../components/index';
 
 export default function Profile() {
     const navigation = useNavigation();
@@ -89,6 +91,9 @@ export default function Profile() {
                     //onPress ejecuta addItem que ingresa en setTasks el dato setTask(text)
                     title='add sport'
                     onPress={addItem}
+                    // onSubmitEditing={() => {
+                    //     console.log('HOLA')
+                    // }}
                     >
                      <Text style={styles.addBtn}>Add</Text>
                     </TouchableOpacity>
@@ -116,7 +121,7 @@ export default function Profile() {
               showsVerticalScrollIndicator={false}
             />
             {/* MODAL */}
-            <Modal animationType='slide' visible={modalVisible}>
+            <CustomModal animationType='slide' visible={modalVisible}>
                 <View style={styles.modalContainer}>
                     <Text style={styles.modalTitle}>Detalle de la lista</Text>
                 </View>
@@ -141,7 +146,7 @@ export default function Profile() {
                         <Text>cancelar</Text>
                     </TouchableOpacity>
                 </View>
-            </Modal>
+            </CustomModal>
             {/* button home */}
             <TouchableOpacity title="Atrás" style={styles.button2}
                 onPress={() => navigation.navigate('Home')}>

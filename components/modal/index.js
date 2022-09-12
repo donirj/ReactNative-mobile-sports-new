@@ -1,8 +1,17 @@
 import React from 'react';
-import { Modal } from 'react-native'
-import { CustomModal } from '..';
+import { Modal } from  'react-native'
 
-custom CustomModal = ({ children, visible, animationType})
+const CustomModal = ({ children, visible, animationType, onRequestClose }) => {
+    return (
+        <Modal 
+            animationType={animationType}
+            visible={visible}
+            onRequestClose={onRequestClose}
+        >
+        {/* voy a renderizar lo que esté dentro del componente del modal en profile*/}
+            {children}
+        </Modal>
+    )
+}
 
-
-export 
+export default CustomModal
