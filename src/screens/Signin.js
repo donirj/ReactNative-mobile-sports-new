@@ -91,8 +91,8 @@ const styles = StyleSheet.create({
     textContainer2: {
         width: '80%'
     },
-    title3: {fontSize: 22, color: '#fff', width: '90%', textAlign: 'center'},
-    subtitle3: {fontSize: 17, color: 'black', width: '90%', textAlign: 'center'},
+    title3: {fontSize: 22, color: '#fff', width: '90%', textAlign: 'center', fontFamily: 'Lato-Bold'},
+    subtitle3: {fontSize: 16.5, color: 'black', width: '90%', textAlign: 'center', fontFamily: 'Lato-Black'},
     input2: {
         height: 40,
         margin: 12,

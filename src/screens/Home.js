@@ -4,6 +4,7 @@ import { useNavigation } from '@react-navigation/native';
 import {Text, View, StyleSheet, Image, TouchableOpacity, Button, TextInput, FlatList, ImageBackground, ScrollView} from 'react-native';
 import {LinearGradient} from 'expo-linear-gradient';
 import { useState } from 'react';
+import Header from '../../components/header'
 
 const data = [
     'https://i.im.ge/2022/09/05/O869sq.ciclista.png',
@@ -12,14 +13,6 @@ const data = [
 ]
 
 export default function Home() {
-
-    const addItem = () => {
-        setTasks((prevTasks) => [
-            ...prevTasks,
-            { id: Date.now(), value: task },
-        ]);
-        setTask('')
-    }
 
     const navigation = useNavigation();
 
@@ -31,6 +24,7 @@ export default function Home() {
                 start={{ x: 0, y: 0 }}
                 end={{ x: 1, y: 1 }}
             >
+            <Header title={'header'}/>
 
 
             <View style={styles.buttonContainer}>

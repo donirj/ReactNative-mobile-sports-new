@@ -1,6 +1,8 @@
 import {KeyboardAvoidingView, Text, View, StyleSheet, Image, TouchableOpacity, Button, TextInput, FlatList, ImageBackground, ScrollView} from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import React, { useState } from 'react'
+import Header from '../../components/header'
+
 
 export default function Login() {
     //state
@@ -8,6 +10,7 @@ export default function Login() {
     return (
         <>
             <KeyboardAvoidingView style={styles.container}>
+                <Header title={'header'}/>
                 <TextInput  style={styles.input}
                 placeholderTextColor="white"
                 placeholder="Email"

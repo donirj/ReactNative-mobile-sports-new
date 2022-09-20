@@ -41,7 +41,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center', 
         alignItems: 'center',
     },
-    title: {fontSize: 30, color: '#fff', textAlign: 'center'},
+    title: {fontSize: 30, color: '#fff', textAlign: 'center', fontFamily: 'Lato-Bold'},
     button2: {
         backgroundColor: 'white',
         opacity: 0.6,
