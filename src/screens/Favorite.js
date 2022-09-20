@@ -11,6 +11,7 @@ export default function Favorite() {
     //state
     const navigation = useNavigation();
     const [age, setAge] = useState('')
+    //estado adicional para setear la edad
     const [confirmed, setConfirmed] = useState(false)
     const [selectedAge, setSelectedAge] = useState(0)
 
@@ -23,6 +24,8 @@ export default function Favorite() {
         setAge('')
         //dismiss the keyboard
         Keyboard.dismiss()
+        //limpiamos el estado 
+        setConfirmed(false)
         console.log('ONRESET')
     }
 
@@ -45,8 +48,14 @@ export default function Favorite() {
                 //esta funcion renderiza el componente de confirmedOutPut
                 <Card style={styles.summaryContainer}>
                     <NumberContainer style={styles.numberText}>{selectedAge}</NumberContainer>
+                    <TouchableOpacity style={styles.button2}
+                        onPress={() => navigation.navigate('Profile')}
+                        ><Text style={styles.btntext}>Continue</Text>
+                    </TouchableOpacity> 
                 </Card>
     )
+
+
     
   return (
     
@@ -61,12 +70,13 @@ export default function Favorite() {
             <TouchableOpacity title="Entrar" style={styles.button} 
                 ><Text style={styles.btntext}>Female</Text></TouchableOpacity>
 
-            <TouchableOpacity title="Entrar" style={styles.button} 
-                ><Text style={styles.btntext}>Set later</Text></TouchableOpacity>
+            {/* <TouchableOpacity title="Entrar" style={styles.button} 
+                ><Text style={styles.btntext}>Set later</Text></TouchableOpacity> */}
 
             <View>
                 <Card style={styles.inputContainer}>
                     <Text style={styles.title}>SET YOUR AGE</Text>
+                    {/* <Text style={styles.subtitle}>You must be 18 or older</Text> */}
                     <Input 
                         style={styles.input} 
                         keyboardType='numeric'
@@ -94,9 +104,9 @@ export default function Favorite() {
             {/* cuando yo confirme, se va ver ese componente */}
             {confirmedOutput()}
             </View>
-            <TouchableOpacity style={styles.button2}
+            {/* <TouchableOpacity style={styles.button2}
             onPress={() => navigation.navigate('Profile')}
-            ><Text style={styles.btntext}>Continue</Text></TouchableOpacity> 
+            ><Text style={styles.btntext}>Continue</Text></TouchableOpacity>  */}
         </View>
     </ImageBackground>
   )
@@ -122,6 +132,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     title: {fontSize: 30, color: '#fff', textAlign: 'center'},
+    subtitle: {fontSize: 15, color: '#fff', textAlign: 'center'},
     button2: {
         backgroundColor: 'white',
         opacity: 0.6,
