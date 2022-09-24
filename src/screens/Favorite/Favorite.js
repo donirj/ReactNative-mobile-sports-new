@@ -1,15 +1,14 @@
-import {KeyboardAvoidingView, Text, View, StyleSheet, Image, TouchableOpacity, Button, TextInput, FlatList, ImageBackground, ScrollView, TouchableWithoutFeedback, Keyboard} from 'react-native';
-import Input from "../../components/input"
-import Card from  "../../components/card"
-import NumberContainer from "../../components/number-container";
-import { useNavigation } from '@react-navigation/native';
+import {KeyboardAvoidingView, Text, View, StyleSheet, Image, TouchableOpacity, Button, TextInput, FlatList, ImageBackground, ScrollView, TouchableWithoutFeedback, Keyboard, Alert } from 'react-native';
+import Input from "../../../components/input"
+import Card from  "../../../components/card"
+import NumberContainer from "../../../components/number-container";
 import { useState } from 'react';
-import { colors } from "../../constants/colors";
+import { colors } from "../../../constants/colors";
 import React from 'react'
+import { styles } from './styles';
 
-export default function Favorite() {
+export default function Favorite({ navigation }) {
     //state
-    const navigation = useNavigation();
     const [age, setAge] = useState('')
     //estado adicional para setear la edad
     const [confirmed, setConfirmed] = useState(false)
@@ -49,18 +48,28 @@ export default function Favorite() {
                 <Card style={styles.summaryContainer}>
                     <NumberContainer style={styles.numberText}>{selectedAge}</NumberContainer>
                     <TouchableOpacity style={styles.button2}
-                        onPress={() => navigation.navigate('Profile')}
+                        onPress={legalAge()}
                         ><Text style={styles.btntext}>Continue</Text>
                     </TouchableOpacity> 
                 </Card>
     )
 
-
+    const legalAge = () => {
+        //convertir string a entero con parseInt
+        //parseInt convierte un argumento de string en un entero
+        const chosenAge = parseInt(age, 10)
+        if(chosenAge > 18 ){
+            navigation.navigate('Profile')
+        } else {
+            null
+            Alert.alert('Error', 'Debes ser mayor de edad para poder continuar', [{text: 'ok', style: 'cancel'}])
+        }
+    }
     
   return (
     
     <ImageBackground 
-        source={require('../../data/efectos-positivos_1410x740_crop_center.jpg')}
+        source={require('../../../data/efectos-positivos_1410x740_crop_center.jpg')}
         style={styles.container4}>
         <View style={styles.inner2}>
             <Text style={styles.title}>YOUR GENDER IS</Text>
@@ -112,75 +121,3 @@ export default function Favorite() {
   )
 }
 
-
-const styles = StyleSheet.create({
-    container: {
-      flex: 1
-    },
-    container4: {
-        flex: 1, 
-        justifyContent: 'center', 
-        alignItems: 'center',
-        backgroundColor: 'white',
-    },
-    inner2: {
-        width: '100%',
-        height: '100%',
-        backgroundColor: 'black',
-        opacity: 0.8,
-        justifyContent: 'center', 
-        alignItems: 'center',
-    },
-    title: {fontSize: 30, color: '#fff', textAlign: 'center'},
-    subtitle: {fontSize: 15, color: '#fff', textAlign: 'center'},
-    button2: {
-        backgroundColor: 'white',
-        opacity: 0.6,
-        padding: 10,
-        width: 125,
-        borderRadius: 30,
-        margin: 10,
-        height: 52
-    },
-    btntext: {
-        color: 'black',
-        textAlign: 'center',
-        fontSize: 21,
-        fontWeight: 'bold'
-    },
-    button: {
-        backgroundColor: 'white',
-        padding: 10,
-        width: 125,
-        borderRadius: 30,
-        margin: 10,
-        height: 52
-        
-    },
-    input: {
-        width: '100%',
-        borderBottomColor: colors.primary,
-        borderBottomWidth: 1,
-        maxWidth: 70,
-        fontSize: 25,
-        paddingVertical: 10,
-        textAlign: 'center',
-        color: 'white'
-    },
-    buttonContainer: {
-        width: '75%',
-        marginHorizontal: 20,
-        flexDirection: 'row',
-        justifyContent: 'space-around',
-        marginTop: 20,
-    },
-    inputContainer: {
-        width: 320,
-        maxWidth: '80%',
-        height: 200,
-        justifyContent: 'center',
-        alignItems: 'center',
-        marginHorizontal: 20,
-    }
-  });
-   
